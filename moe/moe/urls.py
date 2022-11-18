@@ -22,5 +22,7 @@ urlpatterns = [
     path('party',views.Party,name="Party"),
     path('insert_party',views.insert_party,name="insert_party"),
     path('delete_party/<int:id>',views.delete_party,name="delete_party"),
-    path('minister',views.Minister,name="Minister")
+    path('minister',views.Minister,name="Minister"),
+    path('school',views.School,name = "School"),
+    path('Student',views.Student,name = "Student"),
 ]

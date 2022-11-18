@@ -7,25 +7,25 @@
     <title>Party</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-slate-200 my-3">
+<body class="bg-gradient-to-r from-green-400 to-blue-500 my-3">
     <center class="space-y-4">
         <h1 class="mb-4 text-3xl font-bold">
             Political Party
         </h1>
         <a class="bg-pink-300 p-1 rounded-md font-bold hover:bg-green-300" href="{% url 'main_page' %}">Go To Home Page</a>
         <a class="bg-pink-300 p-1 rounded-md font-bold hover:bg-green-300" href="/insert_party">Insert New Party</a>
-        <table class="table-auto w-5/6 text-left">
+        <table class="table-auto w-full text-left">
             <thread>
                 <tr>
-                    <th>Party ID</th>
-                    <th>Party Name</th>
+                    <th class="text-center">Party ID</th>
+                    <th class="text-center">Party Name</th>
                 </tr>
             </thread>
             {% for result in party %}
             <tr>
-                <td>{{ result.party_id }}</td>
-                <td>{{ result.party_name }}</td>
-                <td><a href="/delete_party/{{result.party_id}}" class="bg-red-500 rounded-md text-sm px-2 text-white hover:bg-red-600">Delete</a></td>
+                <td class="text-center">{{ result.party_id }}</td>
+                <td class="text-center">{{ result.party_name }}</td>
+                <td class="text-center"><a href="/delete_party/{{result.party_id}}" class="bg-red-500 rounded-md text-sm px-2 text-white hover:bg-red-600">Delete</a></td>
             </tr>
         {% endfor %}
         </table>

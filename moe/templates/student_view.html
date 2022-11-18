@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Party</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gradient-to-r from-green-400 to-blue-500 my-3">
+    <center class="space-y-4">
+        <h1 class="mb-4 text-3xl font-bold">
+            List of All Student
+        </h1>
+        <a class="bg-pink-300 p-1 rounded-md font-bold hover:bg-green-300" href="{% url 'main_page' %}">Go To Home Page</a>
+        <a class="bg-pink-300 p-1 rounded-md font-bold hover:bg-green-300" href="/insert_party">Insert New Student</a>
+        <table class="table-auto w-full text-left">
+            <thread>
+                <tr>
+                    <th class="text-center">Student ID</th>
+                    <th class="text-center">School Name</th>
+                    <th class="text-center">Age</th>
+                    <th class="text-center">Gender</th>
+                    <th class="text-center">Standard</th>
+                    <th class="text-center">Enrollment Year</th>
+                    <th class="text-center">Cast Name</th>
+                    <th class="text-center">Financial Background</th>
+                    <th class="text-center">Gaurdian Name</th>
+                    <th class="text-center">Pass Out</th>
+                    <th class="text-center">Affiliation No.</th>
+                </tr>
+            </thread>
+            {% for result in student %}
+            <tr>
+                <td class="text-center">{{ result.student_id }}</td>
+                <td class="text-center">{{ result.name }}</td>
+                <td class="text-center">{{ result.age }}</td>
+                <td class="text-center">{{ result.gender }}</td>
+                <td class="text-center">{{ result.standard }}</td>
+                <td class="text-center">{{ result.enrollment_year }}</td>
+                <td class="text-center">{{ result.cast_name }}</td>
+                <td class="text-center">{{ result.financial_background }}</td>
+                <td class="text-center">{{ result.gaurdian_name }}</td>
+                <td class="text-center">{{ result.pass_out }}</td>
+                <td class="text-center">{{ result.affiliation_no }}</td>
+                <td class="text-center"><a href="/delete_party/{{result.party_id}}" class="bg-red-500 rounded-md text-sm px-2 text-white hover:bg-red-600">Delete</a></td>
+                <td class="text-center"><a href="/delete_party/{{result.party_id}}" class="bg-yellow-500 rounded-md text-sm px-2 text-black hover:bg-yellow-600">Edit</a></td>
+            </tr>
+        {% endfor %}
+        </table>
+    </center>
+</body>
+</html>

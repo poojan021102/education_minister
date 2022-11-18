@@ -2,6 +2,8 @@ from django.shortcuts import render
 from .models import party
 from django.contrib import messages
 from .models import minister
+from .models import all_schools
+from .models import student
 def main_page(request):
     return render(request,"index.html")
 
@@ -34,3 +36,12 @@ def delete_party(request,id):
 def Minister(request):
     d = minister.objects.all()
     return render(request,"view_minister.html",{"minister":d})
+
+
+def School(request):
+    d = all_schools.objects.all()
+    return render(request,"school_view.html",{"school":d})
+
+def Student(request):
+    d = student.objects.all()
+    return render(request,"student_view.html",{"student":d})

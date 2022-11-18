@@ -12,30 +12,29 @@
 <body class="bg-gradient-to-r from-green-400 to-blue-500 my-3">
     <center class="space-y-4">
         <h1 class="mb-4 text-3xl font-bold">
-            Education Minister
+            List of All Schools
         </h1>
         <a class="bg-pink-300 p-1 rounded-md font-bold hover:bg-green-300" href="{% url 'main_page' %}">Go To Home
             Page</a>
         <table class="table-auto w-full text-left">
             <thread>
                 <tr>
-                    <th class="text-center">Minister ID</th>
-                    <th class="text-center">Name</th>
-                    <th class="text-center">Term</th>
-                    <th class="text-center">Prime Minister</th>
-                    <th class="text-center">Party ID</th>
-                    <th class="text-center">State Name</th>
+                    <th class="text-center">Affiliation No.</th>
+                    <th class="text-center">School Name</th>
+                    <th class="text-center">Region</th>
+                    <th class="text-center">Board</th>
+                    <th class="text-center">Pincode</th>
                 </tr>
             </thread>
-            {% for result in minister %}
+            {% for result in school %}
             <tr>
-                <td class="text-center">{{result.minister_id}}</td>
-                <td class="text-center">{{result.name}}</td>
-                <td class="text-center">{{result.term_year}}</td>
-                <td class="text-center">{{result.prime_minister}}</td>
-                <td class="text-center">{{result.party_id}}</td>
-                <td class="text-center">{{result.state_name}}</td>
+                <td class="text-center">{{result.affiliation_no}}</td>
+                <td class="text-center">{{result.school_name}}</td>
+                <td class="text-center">{{result.region}}</td>
+                <td class="text-center">{{result.board}}</td>
+                <td class="text-center">{{result.pincode}}</td>
                 <!-- <td><a href="#" class="bg-blue-500 rounded-md text-sm px-2 text-white hover:bg-blue-600">Edit</a></td> -->
+                <!-- <td><a href="#" class="bg-red-500 rounded-md text-sm px-2 text-white hover:bg-red-600">Delete</a></td> -->
             </tr>
             {% endfor %}
         </table>
