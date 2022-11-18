@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Party</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-slate-200 my-3">
+    <center class="space-y-4">
+        <h1 class="mb-4 text-3xl font-bold">
+            Political Party
+        </h1>
+        <a class="bg-pink-300 p-1 rounded-md font-bold hover:bg-green-300" href="{% url 'main_page' %}">Go To Home Page</a>
+        <a class="bg-pink-300 p-1 rounded-md font-bold hover:bg-green-300" href="/insert_party">Insert New Party</a>
+        <table class="table-auto w-5/6 text-left">
+            <thread>
+                <tr>
+                    <th>Party ID</th>
+                    <th>Party Name</th>
+                </tr>
+            </thread>
+            {% for result in party %}
+            <tr>
+                <td>{{ result.party_id }}</td>
+                <td>{{ result.party_name }}</td>
+                <td><a href="/delete_party/{{result.party_id}}" class="bg-red-500 rounded-md text-sm px-2 text-white hover:bg-red-600">Delete</a></td>
+            </tr>
+        {% endfor %}
+        </table>
+    </center>
+</body>
+</html>

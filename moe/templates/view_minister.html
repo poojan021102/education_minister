@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minister</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-slate-200 my-3">
+    <center class="space-y-4">
+        <h1 class="mb-4 text-3xl font-bold">
+            Political Party
+        </h1>
+        <a class="bg-pink-300 p-1 rounded-md font-bold hover:bg-green-300" href="{% url 'main_page' %}">Go To Home
+            Page</a>
+        <table class="table-auto w-5/6 text-left">
+            <thread>
+                <tr>
+                    <th>Minister ID</th>
+                    <th>Name</th>
+                    <th>Term</th>
+                    <th>Prime Minister</th>
+                    <th>Party ID</th>
+                    <th>State Name</th>
+                </tr>
+            </thread>
+            {% for result in minister %}
+            <tr>
+                <td>{{result.minister_id}}</td>
+                <td>{{result.name}}</td>
+                <td>{{result.term_year}}</td>
+                <td>{{result.prime_minister}}</td>
+                <td>{{result.party_id}}</td>
+                <td>{{result.state_name}}</td>
+                <td><a href="#" class="bg-blue-500 rounded-md text-sm px-2 text-white hover:bg-blue-600">Edit</a></td>
+            </tr>
+            {% endfor %}
+        </table>
+    </center>
+</body>
+
+</html>
