@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Party</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gradient-to-r from-green-400 to-blue-500 my-3">
+    <center class="space-y-4">
+        <h1 class="mb-4 text-3xl font-bold">
+            Edit Student {{ student.student_id }}
+        </h1>
+        <a class="bg-pink-300 p-1 rounded-md font-bold hover:bg-green-300" href="{% url 'main_page' %}">Go To Home
+            Page</a>
+        <a class="bg-pink-300 p-1 rounded-md font-bold hover:bg-green-300" href="{% url 'Student' %}">Go Back</a>
+        <form method="post">
+            {% csrf_token %}
+            <table class="table-auto w-full text-left">
+                <thread>
+                    <th></th>
+                    <th></th>
+                </thread>
+                <tr>
+                    <td class="text-xl text-center">Enter Student ID</td>
+                    <td class="text-center">
+                        <input type="text" name="student_id" class="rounded-md mx-3 p-1" value="{{student.student_id}}"
+                            required>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="text-xl text-center">Name</td>
+                    <td class="text-center">
+                        <input type="text" name="name" class="rounded-md mx-3 p-1"
+                            value="{{student.name}}" required>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="text-xl text-center">Age</td>
+                    <td class="text-center">
+                        <input type="number" name="age" class="rounded-md mx-3 p-1" value="{{student.age}}">
+                    </td>
+                </tr>
+                <tr>
+                    <td class="text-xl text-center">Gender</td>
+
+                    <td class="text-center">
+                        <input type="radio" name="gender" value="Male" id="">Male
+                        <input type="radio" name="gender" value="Female" id="">Female
+                        <input type="radio" name="gender" value="Trans">Trans
+                    </td>
+
+                </tr>
+                <tr>
+                    <td class="text-xl text-center">Standard</td>
+                    <td class="text-center">
+                        <input type="number" name="standard" class="rounded-md mx-3 p-1" value="{{student.standard}}">
+                    </td>
+                </tr>
+                <tr>
+                    <td class="text-xl text-center">Enrollment Year</td>
+                    <td class="text-center">
+                        <input type="number" name="enrollment_year" class="rounded-md mx-3 p-1"
+                            value="{{student.enrollment_year}}">
+                    </td>
+                <tr>
+                    <td class="text-xl text-center">Cast Name</td>
+                    <td class="text-center">
+                        <input type="radio" name="cast_name" value="Obc" id="">OBC
+                        <input type="radio" name="cast_name" value="General" id="">Gender
+                        <input type="radio" name="cast_name" value="St">St
+                    </td>
+                </tr>
+                </tr>
+                <tr>
+                    <td class="text-xl text-center">Financial Backgorund</td>
+                    <td class="text-center">
+                        <input type="radio" name="financial_background" value="EWS" id="">EWS
+                        <input type="radio" name="financial_background" value="Non-EWS" id="">Non-EWS
+                        <input type="radio" name="financial_background" value="BPL">BPL
+                    </td>
+                </tr>
+                <tr>
+                    <td class="text-center text-xl">Gaurdian Name</td>
+                    <td class="text-center"><input type="text" name="gaurdian_name" id="" value="{{student.gaurdian_name}}"></td>
+                </tr>
+                <tr>
+                    <td class="text-center text-xl">Pass Out</td>
+                    <td class="text-center">
+                        <input type="radio" name="pass_out" id="" value=1>Passed
+                    </td>
+                    <td class="text-center"><input type="radio" name="pass_out" id="" value=0>Not Passed</td>
+                </tr>
+                <tr>
+                    <td class="text-center text-xl">Affiliation No.</td>
+                    <td class="text-center"><input type="text" name="affiliation_no" id=""
+                            value="{{student.affiliation_no}}"></td>
+                </tr>
+                <tr>
+                    <td class="text-center"><input type="submit"
+                        class="bg-blue-300 my-3 cursor-pointer p-2 rounded-md hover:bg-green-300 hover:font-bold"></td>
+                </tr>
+            </table>
+            {% if messages %}
+            {% for mess in messages %}
+            <div class="text-lx font-bold">
+                {{mess}}
+            </div>
+            {% endfor %}
+            {% endif %}
+        </form>
+    </center>
+</body>
+
+</html>

@@ -41,6 +41,7 @@ class student(models.Model):
     name = models.CharField(max_length=100)
     age = models.BigIntegerField()
     gender = models.CharField(max_length=10)
+    standard = models.BigIntegerField()
     enrollment_year = models.BigIntegerField()
     cast_name = models.CharField(max_length=100)
     financial_background = models.CharField(max_length=100)

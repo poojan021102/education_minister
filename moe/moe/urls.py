@@ -25,4 +25,7 @@ urlpatterns = [
     path('minister',views.Minister,name="Minister"),
     path('school',views.School,name = "School"),
     path('Student',views.Student,name = "Student"),
+    path('delete_student/<int:id>',views.delete_student,name="delete_student"),
+    path('edit_student/<int:id>',views.edit_student,name="edit_student"),
+    path('insert_student',views.insert_student,name = "insert_student"),
 ]

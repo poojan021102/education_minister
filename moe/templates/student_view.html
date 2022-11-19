@@ -13,7 +13,14 @@
             List of All Student
         </h1>
         <a class="bg-pink-300 p-1 rounded-md font-bold hover:bg-green-300" href="{% url 'main_page' %}">Go To Home Page</a>
-        <a class="bg-pink-300 p-1 rounded-md font-bold hover:bg-green-300" href="/insert_party">Insert New Student</a>
+        <a class="bg-pink-300 p-1 rounded-md font-bold hover:bg-green-300" href="{% url 'insert_student' %}">Insert New Student</a><br>
+        {% if messages %}
+                {% for mess in messages %}
+                    <div class="text-lx font-bold">
+                        {{mess}}        
+                    </div>
+                {% endfor %}
+        {% endif %}
         <table class="table-auto w-full text-left">
             <thread>
                 <tr>
@@ -43,8 +50,8 @@
                 <td class="text-center">{{ result.gaurdian_name }}</td>
                 <td class="text-center">{{ result.pass_out }}</td>
                 <td class="text-center">{{ result.affiliation_no }}</td>
-                <td class="text-center"><a href="/delete_party/{{result.party_id}}" class="bg-red-500 rounded-md text-sm px-2 text-white hover:bg-red-600">Delete</a></td>
-                <td class="text-center"><a href="/delete_party/{{result.party_id}}" class="bg-yellow-500 rounded-md text-sm px-2 text-black hover:bg-yellow-600">Edit</a></td>
+                <td class="text-center"><a href="/edit_student/{{result.student_id}}" class="bg-yellow-500 rounded-sm text-sm px-2 text-black hover:bg-yellow-600">Edit</a></td>
+                <td class="text-center"><a href="/delete_student/{{result.student_id}}" class="bg-red-500 rounded-sm text-sm px-2 text-white hover:bg-red-600">Delete</a></td>
             </tr>
         {% endfor %}
         </table>
