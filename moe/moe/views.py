@@ -29,7 +29,7 @@ def insert_party(request):
 def delete_party(request,id):
     d = party.objects.get(party_id=id)
     d.delete()
-    messages.success(request,"The party with party ID "+id+" is deleted Succesfully")
+    messages.success(request,"The party with party ID "+str(id)+" is deleted Succesfully")
     return render(request,"view_party.html",{"party":party.objects.all()})
 
 
